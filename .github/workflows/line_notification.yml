@@ -20,6 +20,6 @@ jobs:
         run: pip install yfinance requests
 
       - name: Execute Python script
-         env:
+        env:
           LINE_NOTIFY_TOKEN: ${{ secrets.LINE_NOTIFY_TOKEN }}
         run: python to_line_routine.py  # 替換成您的Python腳本文件名
