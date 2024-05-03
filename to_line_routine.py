@@ -2,13 +2,15 @@ import yfinance as yf
 import requests
 from datetime import datetime
 
+LINE_NOTIFY_TOKEN = os.environ['LINE_NOTIFY_TOKEN']
+
 def send_to_line(message):
     # 獲取當前時間
     current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     
     # 設置 Line Notify 的 API 地址和授權 token
     url = 'https://notify-api.line.me/api/notify'
-    token='zxKcDeCPxW7C4qoFeICEiGuReQvSUJBMAm9o16sfvS6'
+    token=LINE_NOTIFY_TOKEN
     
     # 設置請求頭
     headers = {
