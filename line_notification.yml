@@ -20,5 +20,5 @@ jobs:
         run: pip install yfinance requests
 
       - name: Execute Python script
-        run: python your_script.py  # 替換成您的Python腳本文件名
+        run: to_line_routine.py  # 替換成您的Python腳本文件名
 
