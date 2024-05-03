@@ -2,7 +2,7 @@ name: Send Line Notification
 
 on:
   schedule:
-    - cron: '*/1 * * * *' # 每隔10分鐘
+    - cron: '*/5 * * * *' # 每隔10分鐘
 
 jobs:
   send_notification:
