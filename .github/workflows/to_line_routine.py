@@ -1,6 +1,7 @@
 import yfinance as yf
 import requests
 from datetime import datetime
+import os
 
 LINE_NOTIFY_TOKEN = os.environ['LINE_NOTIFY_TOKEN']
 
