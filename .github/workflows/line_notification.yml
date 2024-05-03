@@ -22,4 +22,4 @@ jobs:
       - name: Execute Python script
         env:
           LINE_NOTIFY_TOKEN: ${{ secrets.LINE_NOTIFY_TOKEN }}
-        run: python to_line_routine.py  # 替換成您的Python腳本文件名
+        run: python .github/workflows/to_line_routine.py  # 替換成您的Python腳本文件名
