@@ -61,11 +61,11 @@ def get_real_time_stock_info(symbol, target_low_price, target_high_price):
         send_to_line(message)
 
 # 輸入要查詢的股票代碼
-stock = '0050.TW' #如果要可以輸入股票代碼改=input('輸入要的股票代碼(台股後面需加.TW):')
+stock = '00919.TW' #如果要可以輸入股票代碼改=input('輸入要的股票代碼(台股後面需加.TW):')
 stock_symbol = stock 
 #輸入低價及高價
-target_low_price = '154.5' # =input('輸入最低價:')
-target_high_price = '156' # =input('輸入最高價:')
+target_low_price = '24.5' # =input('輸入最低價:')
+target_high_price = '25.0' # =input('輸入最高價:')
 
 # 呼叫函式獲取即時股票資訊
 get_real_time_stock_info(stock_symbol, target_low_price, target_high_price)
