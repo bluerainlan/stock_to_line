@@ -38,18 +38,25 @@ def get_real_time_stock_info(symbol, target_low_price, target_high_price):
     # 獲取即時股票資訊
     real_time_info = ticker.info
 
+    #獲取一天的最新股價
+    stock_price = ticker.history(period='1d')
+
     #獲取最低價和最高價
     low = real_time_info['regularMarketDayLow']
     high = real_time_info['regularMarketDayHigh']
+    #獲取一天歷史價格接近的收盤價
+    now = stock_price['Close'].iloc[-1]
     
     # 將目標價格轉換為浮點數
     target_low_price = float(target_low_price)
     target_high_price = float(target_high_price)
+    now_price =  f"{now:.2f}"
+
     
     # 準備股票資訊的格式化字串
-    stock_info = f"股票代碼:{symbol}\n 股票類型:{real_time_info['quoteType']}"
+    stock_info = f"股票代碼:{symbol}\n 股票名稱:{real_time_info['longName']}\n 股票類型:{real_time_info['quoteType']}"
     # 準備顯示的當前價格訊息
-    current_price_info = f"目前最低價: {real_time_info['regularMarketDayLow']}\n 目前最高價: {real_time_info['regularMarketDayHigh']}"
+    current_price_info = f"目前價格: {now_price}\n 目前最低價: {real_time_info['regularMarketDayLow']}\n 目前最高價: {real_time_info['regularMarketDayHigh']}"
     
     if low <= target_low_price:
         # 準備要發送的訊息
