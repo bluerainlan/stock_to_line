@@ -2,11 +2,12 @@ name: Send Line Notification
 
 on:
   schedule:
-    - cron: '*/10 1-5 * * 1-5' #每天的上午 9:00 至下午 1:30（即 UTC 時間的凌晨 1:00 至凌晨 5:30）每隔 10 分鐘執行一次程式，周一至周五
+    - cron: '*/10 1-5 * * 1-5' # 每天的上午 9:00 至下午 1:30（即 UTC 時間的凌晨 1:00 至凌晨 5:30）每隔 10 分鐘執行一次程式，周一至周五
 
 jobs:
   send_notification:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -17,9 +18,12 @@ jobs:
           python-version: '3.x'
 
       - name: Install dependencies
-        run: pip install yfinance requests
+        run: |
+          pip install --upgrade pip
+          pip install yfinance requests
 
       - name: Execute Python script
         env:
-          LINE_NOTIFY_TOKEN: ${{ secrets.LINE_NOTIFY_TOKEN }}
+          LINE_BOT_ACCESS_TOKEN: ${{ secrets.LINE_BOT_ACCESS_TOKEN }}
+          LINE_USER_ID: ${{ secrets.LINE_USER_ID }}
         run: python .github/workflows/to_line_routine.py  # 替換成您的Python腳本文件名
